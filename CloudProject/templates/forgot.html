@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card p-4 shadow-sm">
+      <h4 class="mb-3">Forgot Password</h4>
+      <form method="POST" action="{{ url_for('forgot') }}">
+        <div class="mb-3">
+          <label class="form-label">Enter your username</label>
+          <input class="form-control" type="text" name="username" required>
+        </div>
+        <div class="d-grid">
+          <button class="btn btn-warning">Get Password Hint</button>
+        </div>
+      </form>
+      <hr>
+      {% if hint %}
+        <div class="alert alert-info">Password hint: <strong>{{ hint }}</strong></div>
+      {% endif %}
+      <p class="text-center mb-0">
+        Remembered your password? <a href="{{ url_for('index') }}" target="_blank">Login</a>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
